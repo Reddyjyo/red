@@ -1,0 +1,20 @@
+name: Run Colab Notebook
+
+on:
+  schedule:
+    # Runs at 9:00 AM UTC (adjust to your local time if needed)
+    - cron: '0 9 * * 1-6'
+
+jobs:
+  run-notebook:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Run Colab Notebook
+      uses: khuyentran1401/run-colab-notebook@v2.3
+      with:
+        colab_link: "https://colab.research.google.com/drive/1Sox8n99FVWI2QU4xn5-_AlKKiTLawVgz?usp=sharing"
+        timeout: 3600  # Optional: Set a timeout for the notebook run
